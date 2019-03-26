@@ -1,41 +1,32 @@
 import React, { Component } from 'react'
-import './App.css'
 import axios from 'axios'
+import { connect } from 'react-redux'
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      loading: false,
-      blogs: []
-    }
-  }
   componentWillMount = () => {
-    this.setState({
-      loading: true
-    })
+    this.props.dispatch({ type: 'BLOG_REQUEST' })
     axios.get('http://localhost:4000/')
-      .then(res=> {
-        this.setState({
-          blogs: res.data.data,
-          loading: false
-        })
+      .then(res => {
+        this.props.dispatch({ type: 'BLOG_REQUEST_SUCCESS', payload: res.data.data })
       })
       .catch(err => console.log(err))
   }
-  
+
   render() {
-    const {blogs, loading} = this.state
-    if(loading){
+    console.log(this.props)
+    const { blogs, loading } = this.props
+    if (loading) {
       return <p>Loading!!!</p>
     }
     return (
       <div className="App">
         <ul>
-          {blogs.map((blog)=><li key={blog.id}>{blog.name}</li>)}
+          {blogs.map((blog) => <li key={blog.id}>{blog.name}</li>)}
         </ul>
       </div>
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return state
+}
+export default connect(mapStateToProps)(App);
