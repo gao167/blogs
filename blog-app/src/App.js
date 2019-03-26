@@ -13,20 +13,24 @@ class App extends Component {
 
   render() {
     console.log(this.props)
-    const { blogs, loading } = this.props
+    const { data, loading } = this.props
     if (loading) {
       return <p>Loading!!!</p>
     }
     return (
       <div className="App">
         <ul>
-          {blogs.map((blog) => <li key={blog.id}>{blog.name}</li>)}
+          {data.map((blog) => <li key={blog.id}>{blog.name}</li>)}
         </ul>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
-  return state
+  const {blog:{loading, data}} = state
+  return {
+    loading,
+    data
+  }
 }
 export default connect(mapStateToProps)(App);
