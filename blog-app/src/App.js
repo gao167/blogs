@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import AboutPage from './pages/AboutPage'
-import HomePage from './pages/HomePage'
-import BlogPage from './pages/BlogPage'
-import LoginPage from './pages/LoginPage'
-import ContactPage from './pages/ContactPage'
+import LayoutFront from './layouts/LayoutFront'
+
 class App extends Component {
   // componentWillMount = () => {
   //   this.props.dispatch({ type: 'BLOG_REQUEST' })
@@ -21,13 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/about/" component={AboutPage} />
-            <Route path="/contact/" component={ContactPage} />
-            <Route path="/login/" component={LoginPage} />
-            <Route path="/blog/" component={BlogPage} />
-          </div>
+            <Route path="/" component={LayoutFront} />
         </Router>
       </div>
     );
