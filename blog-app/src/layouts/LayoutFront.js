@@ -14,7 +14,7 @@ export default class LayoutFront extends Component {
                 <Header />
                 <Route path="/about" component={AboutPage} />
                 <Route path="/" exact component={HomePage} />
-                <Route path="/blog" component={BlogPage} />
+                <Route path="/blog/:slug" component={BlogPage} />
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/login" component={LoginPage} />
                 <Footer />
