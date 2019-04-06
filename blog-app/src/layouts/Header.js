@@ -16,7 +16,7 @@ export default class Header extends Component {
                             <a className="text-muted" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5" /><path d="M21 21l-5.2-5.2" /></svg>
                             </a>
-                            <a className="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                            <Link className="btn btn-sm btn-outline-secondary" to="/login">Sign up</Link>
                         </div>
                     </div>
                 </header>

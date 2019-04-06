@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import LayoutFront from './layouts/LayoutFront'
+import LoginPage from './pages/LoginPage'
+import LayoutBack from './layouts/LayoutBack'
+import {getBlogs} from './modules/blog/action'
 
 class App extends Component {
-  // componentWillMount = () => {
-  //   this.props.dispatch({ type: 'BLOG_REQUEST' })
-  //   axios.get('http://localhost:4000/')
-  //     .then(res => {
-  //       this.props.dispatch({ type: 'BLOG_REQUEST_SUCCESS', payload: res.data.data })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+  componentWillMount = () => {
+    this.props.dispatch(getBlogs())
+  }
 
   render() {
     return (
       <div className="App">
         <Router>
+          <Switch>
+            <Route path="/login" component={LoginPage} />
+            <Route path="/dashboard" component={LayoutBack} />
             <Route path="/" component={LayoutFront} />
+          </Switch>
         </Router>
       </div>
     );

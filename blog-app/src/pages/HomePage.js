@@ -13,7 +13,7 @@ export default class HomePage extends Component {
           </div>
           <BlogFeature />
           <div className="row mb-2">
-            {[1, 2].map((item) => <div className="col-md-6"><BlogItem key={item} type="blog_type_1" /></div>)}
+            {[1, 2].map((item) => <div className="col-md-6" key={item}><BlogItem  type="blog_type_1" /></div>)}
           </div>
         </div>
         <main role="main" className="container">
@@ -22,7 +22,7 @@ export default class HomePage extends Component {
               <h3 className="pb-4 mb-4 font-italic border-bottom">
                 From the Firehose
         </h3>
-              {[1, 2, 3].map((item) => <BlogItem />)}
+              {[1, 2, 3].map((item) => <BlogItem key={item} />)}
               <nav className="blog-pagination">
                 <a className="btn btn-outline-primary" href="#">Older</a>
                 <a className="btn btn-outline-secondary disabled" href="#" tabIndex={-1} aria-disabled="true">Newer</a>
